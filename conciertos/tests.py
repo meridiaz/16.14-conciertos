@@ -10,6 +10,6 @@ class TestViews(TestCase):
 
     def test_nav(self):
         check = '<a class="nav-link" href="/conciertos/grupos/">Grupos</a>'
-        response = self.client.get('/conciertos/grupos')
+        response = self.client.get('/conciertos/')
         content = response.content.decode(encoding='UTF-8')
         self.assertInHTML(check, content)
