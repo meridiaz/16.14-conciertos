@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.admin import widgets
 
 from .models import Grupo, Musico, Concierto
 
@@ -14,5 +15,6 @@ class MusicoForm(forms.Form):
 
 class ConciertoForm(forms.Form):
     fecha = forms.DateTimeField(widget=forms.SelectDateWidget())
-    pechuga = forms.CharField()
+    hora = forms.TimeField()
+    lugar = forms.CharField()
     grupo = forms.ModelChoiceField(queryset=Grupo.objects.all())
