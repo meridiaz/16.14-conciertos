@@ -12,7 +12,7 @@ class Grupo(models.Model):
 class Musico(models.Model):
     nombre = models.CharField(max_length=64)
     instrumento = models.CharField(max_length=64)
-    grupo = models.ForeignKey(Grupo, on_delete=models.PROTECT)    
+    grupo = models.ForeignKey(Grupo, on_delete=models.PROTECT)
     def __str__(self):
         return self.nombre
 
@@ -22,4 +22,3 @@ class Concierto(models.Model):
     grupo = models.ForeignKey(Grupo, on_delete=models.PROTECT)
     def __str__(self):
         return str(self.grupo) + " tocará en " + self.lugar + " el " + str(self.fecha)
-

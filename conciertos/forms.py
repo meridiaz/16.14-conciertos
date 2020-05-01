@@ -10,10 +10,9 @@ class GrupoForm(forms.Form):
 class MusicoForm(forms.Form):
     nombre = forms.CharField()
     instrumento = forms.CharField()
-    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all())    
+    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all())
 
 class ConciertoForm(forms.Form):
     fecha = forms.DateTimeField(widget=forms.SelectDateWidget())
-    lugar = forms.CharField()
-    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all())    
-
+    pechuga = forms.CharField()
+    grupo = forms.ModelChoiceField(queryset=Grupo.objects.all())

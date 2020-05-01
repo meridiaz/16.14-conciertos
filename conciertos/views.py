@@ -30,7 +30,7 @@ def musicos(request):
     form = MusicoForm()
     context = {'objects_list': lista, 'form': form, 'type': "musicos"}
     return render(request, 'conciertos/index.html', context)
-    
+
 def grupo(request, id=0):
     if request.method == "POST":
         form = GrupoForm(request.POST)
@@ -64,4 +64,3 @@ def concierto(request, id=0):
     else:
         concierto = get_object_or_404(Concierto, id=id)
     return render(request, 'conciertos/content.html', {'contenido': concierto})
-
