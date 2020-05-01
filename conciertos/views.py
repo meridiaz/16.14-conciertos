@@ -58,13 +58,13 @@ def musico(request, id=0):
 def concierto(request, id=0):
     if request.method == "POST":
         form = ConciertoForm(request.POST)
-        print(form.is_valid())
-        print(form.cleaned_data['hora'])
         if form.is_valid():
             concierto = Concierto(fecha=datetime.combine(form.cleaned_data['fecha'], form.cleaned_data['hora']),
                             lugar=form.cleaned_data['lugar'], grupo=form.cleaned_data['grupo'])
             concierto.save()
             return redirect('concierto', id=concierto.id)
+        else:
+            return HttpResponse('No has introducido correctamente los datos')
     else:
         concierto = get_object_or_404(Concierto, id=id)
     return render(request, 'conciertos/content.html', {'contenido': concierto})

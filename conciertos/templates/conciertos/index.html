@@ -12,8 +12,6 @@
             <p>No contents are available.</p>
         {% endif %}
   
-
-
        <h2>Add a new {{ type }}</h2>
         <form method="POST" action="/conciertos/{{ type }}/0">
             {% csrf_token %}
